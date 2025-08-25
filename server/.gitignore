@@ -1,0 +1,16 @@
+# Environment variables
+.env
+
+# Node.js modules
+/node_modules
+
+# TypeScript output
+/dist
+
+# Jest
+jest.config.ts
+
+# ESLint & Prettier
+eslint.config.ts
+.prettierrc
+

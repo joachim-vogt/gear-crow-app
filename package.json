@@ -1,0 +1,31 @@
+{
+  "name": "gearcrow",
+  "version": "1.0.0",
+  "description": "A portfolio project showcasing a fullstack CRUD  web-store using React and TypeScript running with Express and PostgreSQL.",
+  "keywords": [
+    "rest",
+    "api",
+    "crud",
+    "web-store",
+    "shopping-cart",
+    "mvc",
+    "express",
+    "scrum",
+    "portfolio"
+  ],
+  "homepage": "https://github.com/joachim-vogt/gear-crow#readme",
+  "bugs": {
+    "url": "https://github.com/joachim-vogt/gear-crow/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joachim-vogt/gear-crow.git"
+  },
+  "license": "MIT",
+  "author": "Joachim Vogt",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
