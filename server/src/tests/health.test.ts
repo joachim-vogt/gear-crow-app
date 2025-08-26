@@ -7,7 +7,7 @@ describe('GET /api/health', () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
-      status: 'OK, from health controller :)',
+      status: 'OK :)',
     });
   });
 });
