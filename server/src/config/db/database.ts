@@ -1,23 +1,17 @@
 import { Sequelize } from 'sequelize';
+import validated_env from '../../utilities/validate_env_values';
 
-// Configuration environment for Sequelize
-
-const validate_env_vars = (env_vars: string[]) => {
-  const missing = env_vars.filter((varName) => !process.env[varName]);
-  if (missing.length > 0) {
-    console.error(new Error(`${'='.repeat(37)} SERVER STARTUP ❌ ${'='.repeat(37)} `));
-    console.error(`${'='.repeat(100)}
-    ✅ Fix: Check your .env variable values at: '${missing.join(', ')}'`);
-    process.exit(1);
-  }
-};
-
-validate_env_vars(['DATABASE_URL', 'PORT', 'DB_NAME']);
-
-// Create Sequelize instance
-const sequelize = new Sequelize(process.env.DATABASE_URL as string, {
-  dialect: 'postgres',
-  logging: process.env.NODE_ENV === 'development' ? console.log : false,
-});
+// Sequelize instance configuration for PostgreSQL using validated env values.
+const sequelize = new Sequelize(
+  validated_env('DB_NAME'),
+  validated_env('DB_USERNAME'),
+  validated_env('DB_PASSWORD'),
+  {
+    host: validated_env('DB_HOST'),
+    port: parseInt(validated_env('DB_PORT'), 10),
+    dialect: 'postgres',
+    logging: process.env.NODE_ENV === 'development' ? console.log : false, // Disables verbose logging in any other environment than 'development'
+  },
+);
 
 export default sequelize;
